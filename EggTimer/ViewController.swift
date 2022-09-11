@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -14,10 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var progress: UIProgressView!
     
     let cookTimes = ["Soft": 300, "Medium": 420, "Hard": 720]
-//    let cookTimes = ["Soft": 10, "Medium": 20, "Hard": 30]
+//    let cookTimes = ["Soft": 1, "Medium": 20, "Hard": 30]
     var secondsRemaining = 0
     var selectedTime = 0
     var timer = Timer()
+    var player : AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,13 @@ class ViewController: UIViewController {
             timer.invalidate()
             titleLabel.text = "Done!"
             progress.isHidden = true
+            playSound(file: "alarm_sound")
         }
+    }
+    
+    private func playSound(file: String) {
+        let url = Bundle.main.url(forResource: file, withExtension: "mp3")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
     }
 }
