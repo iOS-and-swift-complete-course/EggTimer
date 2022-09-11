@@ -42,7 +42,9 @@ class ViewController: UIViewController {
             let p = 1 - Float(secondsRemaining) / Float(selectedTime)
             print(p)
             self.progress.progress = p
-            titleLabel.text = "Seconds Remaining: \(secondsRemaining)"
+            let minutes = secondsRemaining / 60
+            let seconds = String(format: "%02d", secondsRemaining % 60)
+            titleLabel.text = "Time Remaining: \(minutes):\(seconds)"
         } else {
             timer.invalidate()
             titleLabel.text = "Done!"
