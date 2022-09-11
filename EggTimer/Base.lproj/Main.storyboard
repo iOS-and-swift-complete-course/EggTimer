@@ -28,10 +28,20 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eh5-OT-wNH">
+                                                <rect key="frame" x="0.0" y="171.5" width="374" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="owF-Tp-1jG"/>
+                                                </constraints>
+                                                <color key="trackTintColor" red="0.55750024320000002" green="0.15941601990000001" blue="0.1484295726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </progressView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="XLm-5r-pSP" firstAttribute="leading" secondItem="9S4-l0-41N" secondAttribute="leading" id="6V5-9S-ChY"/>
+                                            <constraint firstAttribute="trailing" secondItem="eh5-OT-wNH" secondAttribute="trailing" id="E9G-lw-dvH"/>
+                                            <constraint firstItem="eh5-OT-wNH" firstAttribute="leading" secondItem="9S4-l0-41N" secondAttribute="leading" id="Hg5-Mp-55U"/>
                                             <constraint firstAttribute="bottom" secondItem="XLm-5r-pSP" secondAttribute="bottom" id="OKF-nB-MRE"/>
+                                            <constraint firstAttribute="bottom" secondItem="eh5-OT-wNH" secondAttribute="bottom" constant="50" id="bPV-ir-zfc"/>
                                             <constraint firstItem="XLm-5r-pSP" firstAttribute="top" secondItem="9S4-l0-41N" secondAttribute="top" id="uBu-O3-A6x"/>
                                             <constraint firstAttribute="trailing" secondItem="XLm-5r-pSP" secondAttribute="trailing" id="yP9-jE-EGL"/>
                                         </constraints>
@@ -134,6 +144,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="wI6-ag-afn" secondAttribute="trailing" id="dky-ZA-Z3J"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progress" destination="eh5-OT-wNH" id="aYv-7j-HIG"/>
+                        <outlet property="titleLabel" destination="XLm-5r-pSP" id="jf0-a6-Urs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
