@@ -10,23 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let softTime = 5
-    let mediumTime = 7
-    let hardTime = 12
-    var selectedTime = 0
+    let cookTimes = ["Soft": 5, "Medium": 7, "Hard": 12]
+    var runCount = 0
+    var timer : Timer?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
     
     @IBAction func buttonClicked(_ sender: UIButton) {
-        switch sender.titleLabel!.text! {
-        case "Soft":
-            selectedTime = softTime
-        case "Medium":
-            selectedTime = mediumTime
-        case "Hard":
-            selectedTime = hardTime
-        default:
-            selectedTime = -1
+        if timer != nil && timer!.isValid == true {
+            print("timer is running")
+            return
         }
         
-        print(selectedTime)
+        print("[\(cookTimes[sender.titleLabel!.text!]!)]")
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func fireTimer() {
+        runCount += 1
+        print(runCount)
+        if runCount > 5 {
+            timer!.invalidate()
+            runCount = 0
+        }
     }
 }
